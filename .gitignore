@@ -39,6 +39,7 @@ dev-output.log*
 .env.production
 .claude
 settings.local.json
+package-lock.json
 
 # vercel
 .vercel

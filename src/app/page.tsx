@@ -17,7 +17,7 @@ export default async function Home() {
 
     // If no projects exist, create a new one
     const newProject = await createProject({
-      name: `New Design #${~~(Math.random() * 100000)}`,
+      name: `New Design #${Date.now()}`,
       messages: [],
       data: {},
     });

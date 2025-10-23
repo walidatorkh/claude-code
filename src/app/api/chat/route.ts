@@ -9,12 +9,13 @@ import { getLanguageModel } from "@/lib/provider";
 import { generationPrompt } from "@/lib/prompts/generation";
 
 export async function POST(req: Request) {
-  const {
-    messages,
-    files,
-    projectId,
-  }: { messages: any[]; files: Record<string, FileNode>; projectId?: string } =
-    await req.json();
+  try {
+    const {
+      messages,
+      files,
+      projectId,
+    }: { messages: any[]; files: Record<string, FileNode>; projectId?: string } =
+      await req.json();
 
   messages.unshift({
     role: "system",
@@ -80,6 +81,10 @@ export async function POST(req: Request) {
   });
 
   return result.toDataStreamResponse();
+  } catch (error) {
+    console.error("Chat API error:", error);
+    return Response.json({ error: "An error occurred." }, { status: 500 });
+  }
 }
 
 export const maxDuration = 120;
