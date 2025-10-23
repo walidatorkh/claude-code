@@ -4,7 +4,7 @@ import { Loader2, FileEdit, FolderPlus, FileX, RotateCcw, Eye } from "lucide-rea
 
 interface ToolInvocation {
   toolName: string;
-  state: "calling" | "result";
+  state: "calling" | "result" | "partial-call" | "call";
   args?: any;
   result?: any;
 }

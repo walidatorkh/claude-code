@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
@@ -35,6 +35,10 @@ jobs:
         run: npx tsc --noEmit
         continue-on-error: true
 
+      - name: Run tests
+        run: npm test
+        continue-on-error: true
+
   build:
     name: Build Application
     runs-on: ubuntu-latest
@@ -47,7 +51,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
@@ -122,7 +126,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: '22'
 
       - name: Run security audit
         run: npm audit --audit-level=moderate
