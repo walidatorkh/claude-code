@@ -40,6 +40,7 @@ dev-output.log*
 .claude
 settings.local.json
 package-lock.json
+.vscode
 
 # vercel
 .vercel
