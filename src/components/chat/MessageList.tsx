@@ -1,6 +1,6 @@
 "use client";
 
-import { Message } from "ai";
+import { type Message } from "ai";
 import { cn } from "@/lib/utils";
 import { User, Bot, Loader2 } from "lucide-react";
 import { MarkdownRenderer } from "./MarkdownRenderer";
@@ -56,7 +56,7 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                 <div className="text-sm">
                   {message.parts ? (
                     <>
-                      {message.parts.map((part, partIndex) => {
+                      {message.parts.map((part: any, partIndex: number) => {
                         switch (part.type) {
                           case "text":
                             return message.role === "user" ? (

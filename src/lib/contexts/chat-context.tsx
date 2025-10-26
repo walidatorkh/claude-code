@@ -6,8 +6,8 @@ import {
   ReactNode,
   useEffect,
 } from "react";
-import { useChat as useAIChat } from "@ai-sdk/react";
-import { Message } from "ai";
+import { useChat as useAIChat } from "ai/react";
+import { type Message } from "ai";
 import { useFileSystem } from "./file-system-context";
 import { setHasAnonWork } from "@/lib/anon-work-tracker";
 
@@ -46,7 +46,7 @@ export function ChatProvider({
       files: fileSystem.serialize(),
       projectId,
     },
-    onToolCall: ({ toolCall }) => {
+    onToolCall: ({ toolCall }: { toolCall: any }) => {
       handleToolCall(toolCall);
     },
   });
